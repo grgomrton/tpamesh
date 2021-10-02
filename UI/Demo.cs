@@ -35,7 +35,7 @@ namespace TriangulatedPolygonAStar.UI
         private static readonly double StartY = 3.25;
         private static readonly double GoalX = 6.0;
         private static readonly double GoalY = 1.75;
-        private static readonly int TimeoutInMillseconds = 1000;
+        private static readonly int TimeoutInMillseconds = 10000;
         
         private readonly ILocationMarker startMarker;
         private readonly List<ILocationMarker> goalMarkers;
