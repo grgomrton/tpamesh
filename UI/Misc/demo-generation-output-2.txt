@@ -1,0 +1,33 @@
+Triangle.exe -a0.25 demo.poly
+Opening demo.poly.
+Constructing Delaunay triangulation by divide-and-conquer method.
+Delaunay milliseconds:  0
+Recovering segments in Delaunay triangulation.
+Segment milliseconds:  0
+Removing unwanted triangles.
+Hole milliseconds:  15
+Adding Steiner points to enforce quality.
+Quality milliseconds:  0
+
+Writing demo.1.node.
+Writing demo.1.ele.
+Writing demo.1.poly.
+
+Output milliseconds:  0
+Total running milliseconds:  15
+
+Statistics:
+
+  Input vertices: 21
+  Input segments: 21
+  Input holes: 2
+
+  Mesh vertices: 111
+  Mesh triangles: 177
+  Mesh edges: 289
+  Mesh exterior boundary edges: 47
+  Mesh interior boundary edges: 0
+  Mesh subsegments (constrained edges): 47
+
+
+Process finished with exit code 0

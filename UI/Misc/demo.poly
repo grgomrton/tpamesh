@@ -1,0 +1,61 @@
+# Generate mesh with: triangle -q demo
+# Overall vertex count
+21 2 0 0
+# Outer boundary vertices (12)
+1 0 3
+2 0 4
+3 1 7
+4 7 2
+5 6.5 0
+6 7 1
+7 8 2
+8 8.5 0
+9 7 -1
+10 5.5 -1.5
+11 2.5 -1
+12 3 1
+# Hole1 boundary (4)
+13 2 3
+14 2 4
+15 5 3
+16 3 2
+# Hole2 boundary (5)
+17 4 1.5
+18 5 2.5
+19 6 1
+20 5.5 -0.5
+21 4 0
+
+# Overall segment count
+21 0
+# Outer boundary segments
+1 1 2
+2 2 3
+3 3 4
+4 4 5
+5 5 6
+6 6 7
+7 7 8
+8 8 9
+9 9 10
+10 10 11
+11 11 12
+12 12 1
+# Hole1 segments
+13 13 14
+14 14 15
+15 15 16
+16 16 13
+# Hole2 segments
+17 17 18
+18 18 19
+19 19 20
+20 20 21
+21 21 17
+
+# Overall hole count
+2
+# Hole1 inner point
+1 3 3
+# Hole2 inner point
+2 5 1
