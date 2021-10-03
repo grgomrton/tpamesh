@@ -12,7 +12,7 @@ The algorithm works in various arrangements:
 |:-:|:-:|:-:|
 | The result of a pathfinding on a lowpoly triangulated polygon | The result of a pathfinding on a Delaunay triangulated polygon where added points lie only on boundaries | The result of a pathfinding on a polygon mesh where added points lie inside the polygon boundaries |
 
-The performance of the algorithm depends on the amount of triangles in the search space, as well as on the length of the path.
+The performance of the algorithm depends on the amount of triangles, as well as on the length of the path.
 
 ## Licensing
 
