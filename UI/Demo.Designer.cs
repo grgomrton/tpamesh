@@ -52,7 +52,7 @@ namespace TriangulatedPolygonAStar.UI
             this.ClientSize = new System.Drawing.Size(1000, 600);
             this.Controls.Add(this.display);
             this.Name = "Demo";
-            this.Text = "Triangulated Polygon A-star demo";
+            this.Text = "Triangulated Polygon A-star for 2D Triangle Meshes demo";
 //            this.BackColor = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.DemoOnLoad);
             this.ResumeLayout(false);

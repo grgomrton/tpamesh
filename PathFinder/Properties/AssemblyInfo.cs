@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TriangulatedPolygonAStar")]
+[assembly: AssemblyTitle("TriangulatedPolygonAStarFor2DTriangleMeshes")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TriangulatedPolygonAStar")]
-[assembly: AssemblyCopyright("Copyright 2017 Márton Gergó")]
+[assembly: AssemblyProduct("TriangulatedPolygonAStarFor2DTriangleMeshes")]
+[assembly: AssemblyCopyright("Copyright 2021 Márton Gergó")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -31,7 +31,7 @@ namespace TriangulatedPolygonAStar.UI
         
         static Title()
         {
-            Text = "tpastar";
+            Text = "tpamesh";
             var titleSizeInPx = 50;
             TitleBrush = Brushes.Black;
             TitleFont = new Font(FontFamily.GenericSansSerif, titleSizeInPx, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Pixel);
