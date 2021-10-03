@@ -10,7 +10,7 @@ The algorithm works in various arrangements:
 
 | <img src="./Documentation/exploration-one-start-one-goal-lowpoly-mesh.png" alt="Result on a lowpoly mesh" /> | <img src="./Documentation/exploration-one-start-one-goal-delaunay-mesh.png" alt="Result on a Delaunay triangulated mesh" /> | <img src="./Documentation/exploration-one-start-one-goal-fine-mesh.png" alt="Result on a fine polygon mesh" /> |
 |:-:|:-:|:-:|
-| The result of a pathfinding on a lowpoly triangulated polygon | The result of a pathfinding on a Delaunay triangulated polygon where added points lie only on the boundaries | The result of a pathfinding on a polygon mesh where added points lie inside the polygon boundaries |
+| The result of a pathfinding on a lowpoly triangulated polygon | The result of a pathfinding on a Delaunay triangulated polygon where added points lie only on boundaries | The result of a pathfinding on a polygon mesh where added points lie inside the polygon boundaries |
 
 The performance of the algorithm depends on the amount of triangles, as well as on the length of the path.
 
