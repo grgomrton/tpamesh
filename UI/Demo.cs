@@ -59,7 +59,7 @@ namespace TriangulatedPolygonAStar.UI
             startMarker = new StartMarker(startPosition);
             goalMarkers = new List<ILocationMarker> { new GoalMarker(new Vector(GoalX, GoalY)) };
             currentlyEditedMarker = null;
-            triangles = TriangleMaps.CreateTriangleMapOfFinePolygonMeshWithTwoPolygonHoles();
+            triangles = TriangleMaps.CreateTriangleMapOfPolygonMeshWithAddedPointsOnlyOnBoundaries();
             drawableTriangles = CreateTrianglesToDraw(triangles);
             pathFinder = new TPAStarPathFinder();
             pathFinder.TriangleExplored += PathFinderOnTriangleExplored;

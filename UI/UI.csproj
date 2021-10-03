@@ -61,6 +61,7 @@
     <Compile Include="Resources\TriangleMaps.cs" />
     <Compile Include="Resources\TriangleMeshOfPolygonWithTwoHoles.cs" />
     <Compile Include="Resources\FineTriangleMeshOfPolygonWithTwoHoles.cs" />
+    <Compile Include="Resources\TriangleMeshWithAddedPointsOnlyOnBoundaries.cs" />
     <Compile Include="Resources\TriangleMeshWithOneCentralPoint.cs" />
     <Compile Include="Resources\TrianglesOfPolygonWithOneHole.cs" />
     <Compile Include="Resources\TrianglesOfPolygonWithTwoHoles.cs" />
