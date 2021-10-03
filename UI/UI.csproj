@@ -106,13 +106,6 @@
       <Name>PathFinder</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Misc\demo-generation-output.txt" />
-    <Content Include="Misc\demo.1.ele" />
-    <Content Include="Misc\demo.1.node" />
-    <Content Include="Misc\demo.1.poly" />
-    <Content Include="Misc\demo.poly" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
