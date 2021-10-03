@@ -1,6 +1,6 @@
 # tpamesh
 
-_Triangulated Polygon A-star for 2D Triangle Meshes_ is an extension of my pathfinder [tpastar](https://github.com/grgomrton/tpastar/). It is now be able to find shortest paths on triangle meshes containing points inside the polygon boundaries.
+_Triangulated Polygon A-star for 2D Triangle Meshes_ is an extension of my pathfinder [tpastar](https://github.com/grgomrton/tpastar/) for it to be able to find shortest paths on triangle meshes containing points inside the polygon boundaries.
 
 <p align="center"><img src="./Documentation/exploration-one-start-multiple-goals-cropped.png" alt="The result of an exploration between one start and multiple goals" /></p>  
 
