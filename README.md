@@ -1,6 +1,6 @@
 # tpamesh
 
-_Triangulated Polygon A-star for 2D Triangle Meshes_ is an extension of my pathfinder [tpastar](https://github.com/grgomrton/tpastar/) for it to be able to find shortest paths on triangle meshes containing internal triangles.
+_Triangulated Polygon A-star for 2D Triangle Meshes_ is an extension of my pathfinder [tpastar](https://github.com/grgomrton/tpastar/) so that it is able to find shortest paths on triangle meshes containing internal triangles.
 
 <p align="center"><img src="./Documentation/exploration-one-start-multiple-goals-cropped.png" alt="The result of an exploration between one start and multiple goals" /></p>  
 
@@ -10,7 +10,7 @@ The algorithm works in various arrangements:
 
 | <img src="./Documentation/exploration-one-start-one-goal-lowpoly-mesh.png" alt="Result on a lowpoly mesh" /> | <img src="./Documentation/exploration-one-start-one-goal-delaunay-mesh.png" alt="Result on a Delaunay triangulated mesh" /> | <img src="./Documentation/exploration-one-start-one-goal-fine-mesh.png" alt="Result on a fine polygon mesh" /> |
 |:-:|:-:|:-:|
-| The result of a pathfinding on a lowpoly triangulated polygon | The result of a pathfinding on a Delaunay triangulated polygon where added points lie only on boundaries | The result of a pathfinding on a polygon mesh where added points lie inside the polygon boundaries |
+| The result of a pathfinding on a lowpoly triangulated polygon | The result of a pathfinding on a Delaunay triangulated polygon where added points lie only on the boundaries | The result of a pathfinding on a polygon mesh where added points lie inside the polygon boundaries |
 
 The performance of the algorithm depends on the amount of triangles, as well as on the length of the path.
 
