@@ -1,2 +1,2 @@
 Triangulated Polygon A-star for 2D Triangle Meshes
-Copyright 2017-2021 Márton Gergó
+Copyright 2012-2021 Márton Gergó
