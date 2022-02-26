@@ -1,5 +1,5 @@
 ﻿/**
- * Copyright 2021 Márton Gergó
+ * Copyright 2022 Márton Gergó
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -116,9 +116,30 @@ namespace TriangulatedPolygonAStar
         }
 
         /// <summary>
-        /// Returns a new path which is built by proceeding to the specified neighbour triangle from the current one. 
-        /// The resulting path has a <see cref="ReachedPathsBuilt"/> value of false, 
-        /// and every cost function is updated accordingly.
+        /// Indicates whether the path has accumulated an internal node, and therefore it is known not to be the
+        /// shortest path to any goal.
+        /// </summary>
+        public bool BreakingOnInternalNode
+        {
+            get
+            {
+                LinkedListNode<IVector> currentNode = funnel.Path.First;
+                while (currentNode != null)
+                {
+                    if (currentNode.Value.IsInternal)
+                    {
+                        return true;
+                    }
+
+                    currentNode = currentNode.Next;
+                }
+
+                return false;
+            }
+        }
+        
+        /// <summary>
+        /// Returns a new path which is built by proceeding to the specified neighbour triangle from the current one.
         /// </summary>
         /// <param name="neighbour">The neighbour triangle to step into</param>
         /// <param name="goals">The goal points of the pathfinding</param>
@@ -330,7 +351,8 @@ namespace TriangulatedPolygonAStar
             LinkedListNode<IVector> currentNode = path.First;
             while (currentNode.Next != null)
             {
-                length += currentNode.Value.DistanceFrom(currentNode.Next.Value);
+                length += currentNode.Value.DistanceFrom(currentNode.Next.Value);    
+             
                 currentNode = currentNode.Next;
             }
             return length;

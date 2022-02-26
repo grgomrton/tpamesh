@@ -287,6 +287,51 @@ namespace TriangulatedPolygonAStar.Tests
             pathToT6.ShortestPathToEdgeLength.Should()
                 .BeApproximately(sqaureRootTwoPlusSquareRootFivePlusSquareRootOnePointTwentyFive, AssertionPrecision);
         }
+
+        [Test]
+        public void IfBuiltPathContainsInternalNodeBreakingOnInternalNodeShouldBeTrue()
+        {
+            var origin = new Vector(0.0, 0.0, true);
+            var a = new Vector(2.0, 0.0);
+            var b = new Vector(1.0, 1.0);
+            var c = new Vector(0.0, 2.0);
+            var d = new Vector(-1.0, 1.0);
+            var e = new Vector(-2.0, 0.0);
+            var f = new Vector(-1.0, -1.0);
+            var g = new Vector(0.0, -2.0);
+            var h = new Vector(2.0, -3.0);
+            var i = new Vector(1.0, -1.0);
+            var t1 = new Triangle(origin, a, b, 1);
+            var t2 = new Triangle(origin, b, c, 2);
+            var t3 = new Triangle(origin, c, d, 3);
+            var t4 = new Triangle(origin, d, e, 4);
+            var t5 = new Triangle(origin, e, f, 5);
+            var t6 = new Triangle(origin, f, g, 6);
+            var t7 = new Triangle(origin, g, i, 7);
+            var t8 = new Triangle(origin, i, a, 8);
+            var t9 = new Triangle(g, h, i, 9);
+            t9.SetNeighbours(t7);
+            t7.SetNeighbours(t6, t8);
+            t8.SetNeighbours(t7, t1);
+            t1.SetNeighbours(t8, t2);
+            t2.SetNeighbours(t1, t3);
+            t3.SetNeighbours(t2, t4);
+            t4.SetNeighbours(t3, t5);
+            t5.SetNeighbours(t4, t6);
+            t6.SetNeighbours(t5, t7);
+            var start = new Vector(1.8, -2.8);
+            var goals = Enumerable.Empty<IVector>();
+            var initialPath = new TPAPath(start, t9);
+
+            var afterFirstStep = initialPath.BuildPartialPathTo(t7, goals);
+            var afterSecondStep = afterFirstStep.BuildPartialPathTo(t8, goals);
+            var afterThirdStep = afterSecondStep.BuildPartialPathTo(t1, goals);
+            var afterFourthStep = afterThirdStep.BuildPartialPathTo(t2, goals);
+            var afterFifthStep = afterFourthStep.BuildPartialPathTo(t3, goals);
+            var afterSixthStep = afterFifthStep.BuildPartialPathTo(t4, goals);
+
+            afterSixthStep.BreakingOnInternalNode.Should().BeTrue();
+        }
         
         [Test]
         public void PathShouldNotProceedToNotAdjacentTriangle()

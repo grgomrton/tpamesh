@@ -30,6 +30,12 @@ namespace TriangulatedPolygonAStar
         /// The vertical component of the vector.
         /// </summary>
         double Y { get; }
+        
+        /// <summary>
+        /// Indicates whether the given point lies inside the polygon (internal) or on the polygon boundary (non-internal).
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternal { get; }
 
         /// <summary>
         /// Returns the result of adding the specified vector to the current one. 

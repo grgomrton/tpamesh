@@ -27,7 +27,7 @@ namespace TriangulatedPolygonAStar.Tests
 {
     // in order to have timeout support the assert and act sections are exchanged
     [TestFixture]
-    public class TPAStarTests
+    public class TPAMeshTests
     {
         private static double AssertionPrecision = 0.0001;
         private static int TimeOutInMillseconds = 1000;
@@ -46,7 +46,7 @@ namespace TriangulatedPolygonAStar.Tests
             var c = new Vector(1.0, 0.0);
             var triangle = new Triangle(a, b, c, 0);
             var start = new Vector(-1.0, -1.0);
-            var pathFinder = new TPAStarPathFinder();
+            var pathFinder = new TPAMeshPathFinder();
             var cancelAfterTimeout = new CancellationTokenSource(TimeOutInMillseconds).Token;
             
             Action<Task<IEnumerable<IVector>>> pathAssertion = pathFindingOutcome =>
@@ -73,7 +73,7 @@ namespace TriangulatedPolygonAStar.Tests
             var t1 = new Triangle(a, b, c, 0);
             var s = new Vector(5.5, 7.5);
             var g = new Vector(7.0, 7.5);
-            var pathFinder = new TPAStarPathFinder();
+            var pathFinder = new TPAMeshPathFinder();
             var cancelAfterTimeout = new CancellationTokenSource(TimeOutInMillseconds).Token;
 
             Action<Task<IEnumerable<IVector>>> pathAssertion = pathFindingOutcome =>
@@ -110,7 +110,7 @@ namespace TriangulatedPolygonAStar.Tests
             t2.SetNeighbours(t1);
             var s = new Vector(7.5, 7.5);
             var g = new Vector(7.5, 10.0);
-            var pathFinder = new TPAStarPathFinder();
+            var pathFinder = new TPAMeshPathFinder();
             var cancelAfterTimeout = new CancellationTokenSource(TimeOutInMillseconds).Token;
 
             Action<Task<IEnumerable<IVector>>> pathAssertion = pathFindingOutcome =>
@@ -158,7 +158,7 @@ namespace TriangulatedPolygonAStar.Tests
             t5.SetNeighbours(t4);
             var s = new Vector(9.0, 11.5);
             var g = new Vector(12.0, 13.5);
-            var pathFinder = new TPAStarPathFinder();
+            var pathFinder = new TPAMeshPathFinder();
             var cancelAfterTimeout = new CancellationTokenSource(TimeOutInMillseconds).Token;
 
             Action<Task<IEnumerable<IVector>>> pathAssertion = pathFindingOutcome =>
@@ -204,7 +204,7 @@ namespace TriangulatedPolygonAStar.Tests
             var s = new Vector(9.0, 11.5);
             var g1 = new Vector(12.0, 13.5);
             var g2 = new Vector(9.0, 14.5);
-            var pathFinder = new TPAStarPathFinder();
+            var pathFinder = new TPAMeshPathFinder();
             var cancelAfterTimeout = new CancellationTokenSource(TimeOutInMillseconds).Token;
 
             Action<Task<IEnumerable<IVector>>> pathAssertion = pathFindingOutcome =>
@@ -253,7 +253,7 @@ namespace TriangulatedPolygonAStar.Tests
                 var neighbours = triangles.Where(other => triangle.GetCommonVerticesWith(other).Count() == 2).ToArray();
                 triangle.SetNeighbours(neighbours);
             }
-            var pathFinder = new TPAStarPathFinder();
+            var pathFinder = new TPAMeshPathFinder();
             var cancelAfterTimeout = new CancellationTokenSource(TimeOutInMillseconds).Token;
             
             Action<Task<IEnumerable<IVector>>> pathAssertion = pathFindingOutcome =>
@@ -296,7 +296,7 @@ namespace TriangulatedPolygonAStar.Tests
                 var neighbours = triangles.Where(other => triangle.GetCommonVerticesWith(other).Count() == 2).ToArray();
                 triangle.SetNeighbours(neighbours);
             }
-            var pathFinder = new TPAStarPathFinder();
+            var pathFinder = new TPAMeshPathFinder();
             var cancelAfterTimeout = new CancellationTokenSource(TimeOutInMillseconds).Token;
             
             Action<Task<IEnumerable<IVector>>> pathAssertion = pathFindingOutcome =>
@@ -341,7 +341,7 @@ namespace TriangulatedPolygonAStar.Tests
                 var neighbours = triangles.Where(other => triangle.GetCommonVerticesWith(other).Count() == 2).ToArray();
                 triangle.SetNeighbours(neighbours);
             }
-            var pathFinder = new TPAStarPathFinder();
+            var pathFinder = new TPAMeshPathFinder();
             var cancelAfterTimeout = new CancellationTokenSource(TimeOutInMillseconds).Token;
             
             Action<Task<IEnumerable<IVector>>> pathAssertion = pathFindingOutcome =>
@@ -379,7 +379,7 @@ namespace TriangulatedPolygonAStar.Tests
             var start = new Vector(0.0, 0.5);
             var goalInT2CornerPoint = new Vector(-1.0, 1.0);
             var goalInT3 = new Vector(0.8, 0.8);
-            var pathFinder = new TPAStarPathFinder();
+            var pathFinder = new TPAMeshPathFinder();
             var cancelAfterTimeout = new CancellationTokenSource(TimeOutInMillseconds).Token;
             
             Action<Task<IEnumerable<IVector>>> pathAssertion = pathFindingOutcome =>
@@ -411,7 +411,7 @@ namespace TriangulatedPolygonAStar.Tests
             var goalInT1 = new Vector(0.5, 0.1);
             var goalInT2 = new Vector(-0.1, 0.1);
             var goals = new[] {goalInT1, goalInT2};
-            var pathFinder = new TPAStarPathFinder();
+            var pathFinder = new TPAMeshPathFinder();
             var cancelAfterTimeout = new CancellationTokenSource(TimeOutInMillseconds).Token;
             
             Action<Task<IEnumerable<IVector>>> pathAssertion = pathFindingOutcome =>
@@ -447,7 +447,7 @@ namespace TriangulatedPolygonAStar.Tests
             t1.SetNeighbours(t2, t3, t4);
             var startInT3 = new Vector(0.8, 1.8);
             var goalInT2CornerPoint = new Vector(-1.0, 2.0);
-            var pathFinder = new TPAStarPathFinder();
+            var pathFinder = new TPAMeshPathFinder();
             var cancelAfterTimeout = new CancellationTokenSource(TimeOutInMillseconds).Token;
             
             Action<Task<IEnumerable<IVector>>> pathAssertion = pathFindingOutcome =>

@@ -56,40 +56,25 @@ namespace TriangulatedPolygonAStar.BasicGeometry
         /// <summary>
         /// The first corner of the triangle.
         /// </summary>
-        public IVector A
-        {
-            get { return vertices[0]; }
-        }
+        public IVector A => vertices[0];
 
         /// <summary>
         /// The second corner of the triangle.
         /// </summary>
-        public IVector B
-        {
-            get { return vertices[1]; }
-        }
+        public IVector B => vertices[1];
 
         /// <summary>
         /// The third corner of the triangle.
         /// </summary>
-        public IVector C
-        {
-            get { return vertices[2]; }
-        }
+        public IVector C => vertices[2];
 
         /// <summary>
         /// The identifier of this triangle.
         /// </summary>
-        public int Id
-        {
-            get { return id; }
-        }
-        
+        public int Id => id;
+
         /// <inheritdoc />
-        public IEnumerable<ITriangle> Neighbours
-        {
-            get { return neighbours; }
-        }
+        public IEnumerable<ITriangle> Neighbours => neighbours;
 
         /// <summary>
         /// Sets the neighbours of this triangle. 
@@ -191,8 +176,7 @@ namespace TriangulatedPolygonAStar.BasicGeometry
         /// <returns>true if the specified object is equal to the current object, otherwise false</returns>
         public override bool Equals(object other)
         {
-            Triangle otherTriangle = other as Triangle;
-            if (otherTriangle != null)
+            if (other is Triangle otherTriangle)
             {
                 return GetCommonVerticesWith(otherTriangle).Count() == 3;
             }

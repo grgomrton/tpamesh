@@ -23,7 +23,7 @@ namespace TriangulatedPolygonAStar.UI.Resources
     {
         public static IEnumerable<Triangle> CreateTriangleMapOfPolygonMeshWithOneCentralPoint()
         {
-            var a = new Vector(0.0, 0.0);
+            var a = new Vector(0.0, 0.0, true);
             var b = new Vector(0.0, -2.0);
             var c = new Vector(1.0, -1.0);
             var d = new Vector(2.0, 0.0);

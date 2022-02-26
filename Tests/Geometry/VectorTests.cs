@@ -283,6 +283,15 @@ namespace TriangulatedPolygonAStar.Tests
             
             gettingEqualsWithNull.ShouldNotThrow();
         }
+
+        [Test]
+        public void VectorsAtSamePlaceShouldNotBeEqualIfOneOfThemIsInternalAndTheOtherOneIsNot()
+        {
+            var a = new Vector(1.0, 0.0, isInternal: false);
+            var b = new Vector(1.0, 0.0, isInternal: true);
+
+            a.Equals(b).Should().BeFalse();
+        }
         
     }
 }

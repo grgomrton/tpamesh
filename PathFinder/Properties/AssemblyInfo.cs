@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("TriangulatedPolygonAStarFor2DTriangleMeshes")]
-[assembly: AssemblyCopyright("Copyright 2021 Márton Gergó")]
+[assembly: AssemblyCopyright("Copyright 2022 Márton Gergó")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

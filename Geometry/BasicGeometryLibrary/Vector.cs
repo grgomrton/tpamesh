@@ -16,6 +16,7 @@
 
 using System;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace TriangulatedPolygonAStar.BasicGeometry
 {
@@ -24,30 +25,40 @@ namespace TriangulatedPolygonAStar.BasicGeometry
     {
         private readonly double x;
         private readonly double y;
+        private readonly bool isInternal;
 
         /// <summary>
         /// Initializes a new instance of <see cref="Vector"/> class by its two components.
         /// </summary>
         /// <param name="x">The horizontal component of the vector</param>
         /// <param name="y">The vertical component of the vector</param>
-        public Vector(double x, double y)
+        public Vector(double x, double y) : this(x, y, false)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="Vector"/> class by its two components and
+        /// optionally the flag that indicates whether this vector is an internal vector of the polygon.
+        /// </summary>
+        /// <param name="x">The horizontal component of the vector</param>
+        /// <param name="y">The vertical component of the vector</param>
+        /// <param name="isInternal">The flag that indicates whether this point is an internal point in the polygon map</param>
+        public Vector(double x, double y, bool isInternal)
         {
             this.x = x;
             this.y = y;
+            this.isInternal = isInternal;
         }
 
         /// <inheritdoc />
-        public double X
-        {
-            get { return x; }
-        }
+        public double X => x;
 
         /// <inheritdoc />
-        public double Y
-        {
-            get { return y; }
-        }
+        public double Y => y;
 
+        /// <inheritdoc />
+        public bool IsInternal => isInternal;
+        
         /// <inheritdoc />
         public IVector Plus(IVector other)
         {
@@ -106,10 +117,9 @@ namespace TriangulatedPolygonAStar.BasicGeometry
         /// <returns>true if the two object represent the same point, otherwise false</returns>
         public override bool Equals(object other)
         {
-            Vector otherVector = other as Vector;
-            if (otherVector != null)
+            if (other is Vector otherVector)
             {
-                return otherVector.DistanceFrom(this) < VectorEqualityCheck.Tolerance;
+                return otherVector.DistanceFrom(this) < VectorEqualityCheck.Tolerance && otherVector.IsInternal == this.IsInternal;
             }
             return false;
         }

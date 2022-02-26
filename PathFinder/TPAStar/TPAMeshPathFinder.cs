@@ -23,16 +23,16 @@ namespace TriangulatedPolygonAStar
     /// A pathfinder which is able to determine the euclidean shortest path between one start and multiple goal points
     /// in a triangulated polygon with polygon holes.
     /// </summary>
-    public class TPAStarPathFinder
+    public class TPAMeshPathFinder
     {
         private LinkedList<TPAPath> openSet;
         private Dictionary<IEdge, double> higherBounds;
         
         /// <summary>
-        /// Initializes a new instance of a <see cref="TPAStarPathFinder"/> class which can be used to find
+        /// Initializes a new instance of a <see cref="TPAMeshPathFinder"/> class which can be used to find
         /// shortest paths in a trianglulated polygon with polygon holes.
         /// </summary>
-        public TPAStarPathFinder()
+        public TPAMeshPathFinder()
         {
             openSet = new LinkedList<TPAPath>();
             higherBounds = new Dictionary<IEdge, double>();    
@@ -137,15 +137,18 @@ namespace TriangulatedPolygonAStar
         
         private bool IsGoodCandidate(TPAPath path)
         {
-            bool isGoodCandidate = true;
+            if (path.BreakingOnInternalNode)
+            {
+                return false;
+            }
             if (higherBounds.ContainsKey(path.CurrentEdge))
             {
                 if (higherBounds[path.CurrentEdge] < path.ShortestPathToEdgeLength)
                 {
-                    isGoodCandidate = false;
+                    return false;
                 }
             }
-            return isGoodCandidate;
+            return true;
         }
 
         private void UpdateHigherBoundToReachedEdge(TPAPath path)

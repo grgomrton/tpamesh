@@ -82,16 +82,10 @@ namespace TriangulatedPolygonAStar.BasicGeometry
         }
         
         /// <inheritdoc />
-        public IVector A
-        {
-            get { return a; }
-        }
+        public IVector A => a;
 
         /// <inheritdoc />
-        public IVector B
-        {
-            get { return b; }
-        }
+        public IVector B => b;
 
         /// <summary>
         /// Indicates, whether the specified point lies on this edge. 
@@ -147,8 +141,7 @@ namespace TriangulatedPolygonAStar.BasicGeometry
         /// <returns>true if the specified object is equal to the current object, otherwise false</returns>
         public override bool Equals(object other)
         {
-            Edge otherEdge = other as Edge;
-            if (otherEdge != null)
+            if (other is Edge otherEdge)
             {
                 return ((otherEdge.a.Equals(this.a) && otherEdge.b.Equals(this.b)) ||
                         (otherEdge.b.Equals(this.a) && otherEdge.a.Equals(this.b)));

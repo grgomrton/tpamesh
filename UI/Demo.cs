@@ -35,13 +35,13 @@ namespace TriangulatedPolygonAStar.UI
         private static readonly double StartY = 3.25;
         private static readonly double GoalX = 6.0;
         private static readonly double GoalY = 1.75;
-        private static readonly int TimeoutInMillseconds = 10000;
+        private static readonly int TimeoutInMillseconds = 3000;
         
         private readonly ILocationMarker startMarker;
         private readonly List<ILocationMarker> goalMarkers;
         private readonly IEnumerable<Triangle> triangles;
         private readonly Dictionary<ITriangle, DrawableTriangle> drawableTriangles;
-        private readonly TPAStarPathFinder pathFinder;
+        private readonly TPAMeshPathFinder pathFinder;
         private readonly PoseDisplay poseDiplay;
         private readonly MetaDisplay metaDisplay;
         private readonly PolyLine pathDisplay;
@@ -61,7 +61,7 @@ namespace TriangulatedPolygonAStar.UI
             currentlyEditedMarker = null;
             triangles = TriangleMaps.CreateTriangleMapOfFinePolygonMeshWithTwoPolygonHoles();
             drawableTriangles = CreateTrianglesToDraw(triangles);
-            pathFinder = new TPAStarPathFinder();
+            pathFinder = new TPAMeshPathFinder();
             pathFinder.TriangleExplored += PathFinderOnTriangleExplored;
             pathDisplay = new PolyLine();
             
@@ -192,7 +192,7 @@ namespace TriangulatedPolygonAStar.UI
                 triangle.ClearMetaData();
             }
             var startTriangle = triangles.FirstOrDefault(triangle => triangle.ContainsPoint(startMarker.CurrentLocation));
-            if (startTriangle != null)
+            if (startTriangle != null && goalMarkers.Count > 0)
             {
                 var cancellationToken = new CancellationTokenSource(TimeoutInMillseconds).Token;  
                 try
@@ -215,7 +215,7 @@ namespace TriangulatedPolygonAStar.UI
             display.Invalidate();
         }
 
-        private static LinkedList<IVector> PathFindingExecution(TPAStarPathFinder pathFinder, IVector start, ITriangle startTriangle, IEnumerable<IVector> goals)
+        private static LinkedList<IVector> PathFindingExecution(TPAMeshPathFinder pathFinder, IVector start, ITriangle startTriangle, IEnumerable<IVector> goals)
         {
             return pathFinder.FindPath(start, startTriangle, goals);
         }
