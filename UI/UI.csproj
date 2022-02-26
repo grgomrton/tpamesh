@@ -58,6 +58,8 @@
     <Compile Include="Drawables\Title.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\FlatTriangleMesh.cs" />
+    <Compile Include="Resources\FlatTriangleMeshWithHole.cs" />
     <Compile Include="Resources\TriangleMaps.cs" />
     <Compile Include="Resources\FineTriangleMeshOfPolygonWithTwoHoles.cs" />
     <Compile Include="Resources\TriangleMeshWithAddedPointsOnlyOnBoundaries.cs" />

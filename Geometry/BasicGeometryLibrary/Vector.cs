@@ -16,7 +16,6 @@
 
 using System;
 using System.Globalization;
-using System.Runtime.CompilerServices;
 
 namespace TriangulatedPolygonAStar.BasicGeometry
 {
@@ -25,7 +24,7 @@ namespace TriangulatedPolygonAStar.BasicGeometry
     {
         private readonly double x;
         private readonly double y;
-        private readonly bool isInternal;
+        private bool isInternal;
 
         /// <summary>
         /// Initializes a new instance of <see cref="Vector"/> class by its two components.
@@ -57,8 +56,12 @@ namespace TriangulatedPolygonAStar.BasicGeometry
         public double Y => y;
 
         /// <inheritdoc />
-        public bool IsInternal => isInternal;
-        
+        public bool IsInternal
+        {
+            get => isInternal;
+            set => isInternal = value;
+        }
+
         /// <inheritdoc />
         public IVector Plus(IVector other)
         {

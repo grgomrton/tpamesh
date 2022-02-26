@@ -80,12 +80,21 @@ namespace TriangulatedPolygonAStar.BasicGeometry
             firstNeighbourId = firstNeighbourIdValue;
             secondNeighbourId = secondNeighbourIdValue;
         }
-        
+
         /// <inheritdoc />
         public IVector A => a;
 
         /// <inheritdoc />
         public IVector B => b;
+
+        /// <summary>
+        /// Marks the two endpoint as non-internal nodes.
+        /// </summary>
+        public void MarkNodesAsBoundary()
+        {
+            this.a.IsInternal = false;
+            this.b.IsInternal = false;
+        }
 
         /// <summary>
         /// Indicates, whether the specified point lies on this edge. 

@@ -33,5 +33,35 @@ namespace TriangulatedPolygonAStar.UI.Resources
                 triangle.SetNeighbours(neighbours);
             }
         }
+
+        private static void AnalyzeBoundaries(IEnumerable<Triangle> triangles)
+        {
+            var trianglesOfEdges = new Dictionary<Edge, int>();
+            foreach (var triangle in triangles)
+            {
+                var e1 = new Edge(triangle.A, triangle.B);
+                IncreaseNeighbourCount(e1, trianglesOfEdges);
+                var e2 = new Edge(triangle.A, triangle.C);
+                IncreaseNeighbourCount(e2, trianglesOfEdges);
+                var e3 = new Edge(triangle.B, triangle.C);
+                IncreaseNeighbourCount(e3, trianglesOfEdges);
+            }
+            foreach (var boundaryEdge in trianglesOfEdges.Keys.Where(edge => trianglesOfEdges[edge] == 1))
+            {
+                boundaryEdge.MarkNodesAsBoundary();
+            }
+        }
+
+        private static void IncreaseNeighbourCount(Edge edge, Dictionary<Edge, int> trianglesOfEdges)
+        {
+            if (trianglesOfEdges.ContainsKey(edge))
+            {
+                trianglesOfEdges[edge]++;
+            }
+            else
+            {
+                trianglesOfEdges[edge] = 1;
+            }
+        }
     }
 }

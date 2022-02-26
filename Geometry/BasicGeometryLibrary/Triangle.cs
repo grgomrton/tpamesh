@@ -56,17 +56,17 @@ namespace TriangulatedPolygonAStar.BasicGeometry
         /// <summary>
         /// The first corner of the triangle.
         /// </summary>
-        public IVector A => vertices[0];
+        public Vector A => vertices[0];
 
         /// <summary>
         /// The second corner of the triangle.
         /// </summary>
-        public IVector B => vertices[1];
+        public Vector B => vertices[1];
 
         /// <summary>
         /// The third corner of the triangle.
         /// </summary>
-        public IVector C => vertices[2];
+        public Vector C => vertices[2];
 
         /// <summary>
         /// The identifier of this triangle.
