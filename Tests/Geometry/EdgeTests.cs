@@ -201,7 +201,7 @@ namespace TriangulatedPolygonAStar.Tests
 
             Action gettingEqualsWithNull = () => edge.Equals(null);
             
-            gettingEqualsWithNull.ShouldNotThrow();
+            gettingEqualsWithNull.Should().NotThrow();
         }
         
         [Test]
@@ -212,7 +212,7 @@ namespace TriangulatedPolygonAStar.Tests
 
             Action edgeInstantiation = () => new Edge(a, b);
 
-            edgeInstantiation.ShouldThrow<ArgumentException>()
+            edgeInstantiation.Should().Throw<ArgumentException>()
                 .And.Message.Should().Contain("equal");
         }
     }

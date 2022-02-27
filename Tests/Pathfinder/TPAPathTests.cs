@@ -349,7 +349,7 @@ namespace TriangulatedPolygonAStar.Tests
 
             Action buildPathToT2 = () => initialPath.BuildPartialPathTo(t2, goals);
 
-            buildPathToT2.ShouldThrow<ArgumentException>().And.Message.Should().Contain("triangle");
+            buildPathToT2.Should().Throw<ArgumentException>().And.Message.Should().Contain("triangle");
         }
 
         [Test]
@@ -363,7 +363,7 @@ namespace TriangulatedPolygonAStar.Tests
 
             Action init = () => new TPAPath(start, t1);
 
-            init.ShouldThrow<ArgumentException>().And.Message.Should().Contain("fall");
+            init.Should().Throw<ArgumentException>().And.Message.Should().Contain("fall");
         }
 
         [Test]

@@ -127,7 +127,7 @@ namespace TriangulatedPolygonAStar.Tests
 
             Action settingNeighbours = () => t1.SetNeighbours(t2);
 
-            settingNeighbours.ShouldThrow<ArgumentException>()
+            settingNeighbours.Should().Throw<ArgumentException>()
                 .And.Message.Should().Contain("not adjacent");
         }
 
@@ -145,7 +145,7 @@ namespace TriangulatedPolygonAStar.Tests
 
             Action gettingCommonEdge = () => t1.GetCommonEdgeWith(t2);
 
-            gettingCommonEdge.ShouldThrow<ArgumentException>()
+            gettingCommonEdge.Should().Throw<ArgumentException>()
                 .And.Message.Should().Contain("neighbour");
         }
         
@@ -165,7 +165,7 @@ namespace TriangulatedPolygonAStar.Tests
             
             var commonEdge = t1.GetCommonEdgeWith(t2);
 
-            commonEdge.ShouldBeEquivalentTo(expectedCommonEdge);
+            commonEdge.Should().BeEquivalentTo(expectedCommonEdge);
         }
         
         [Test]
@@ -184,7 +184,7 @@ namespace TriangulatedPolygonAStar.Tests
 
             var commonEdge = t1.GetCommonEdgeWith(t2);
 
-            commonEdge.ShouldBeEquivalentTo(expectedCommonEdge);
+            commonEdge.Should().BeEquivalentTo(expectedCommonEdge);
         }
         
         [Test]
@@ -203,7 +203,7 @@ namespace TriangulatedPolygonAStar.Tests
 
             var commonEdge = t1.GetCommonEdgeWith(t2);
 
-            commonEdge.ShouldBeEquivalentTo(expectedCommonEdge);
+            commonEdge.Should().BeEquivalentTo(expectedCommonEdge);
         }
         
         [Test]
@@ -222,7 +222,7 @@ namespace TriangulatedPolygonAStar.Tests
             
             var commonEdge = t1.GetCommonEdgeWith(t2);
 
-            commonEdge.ShouldBeEquivalentTo(expectedCommonEdge);
+            commonEdge.Should().BeEquivalentTo(expectedCommonEdge);
         }
 
         [Test]
@@ -946,7 +946,7 @@ namespace TriangulatedPolygonAStar.Tests
 
             Action gettingEqualsWithNull = () => triangle.Equals(null);
             
-            gettingEqualsWithNull.ShouldNotThrow();
+            gettingEqualsWithNull.Should().NotThrow();
         }
         
         [Test]
@@ -958,7 +958,7 @@ namespace TriangulatedPolygonAStar.Tests
 
             Action triangleInstantiation = () => new Triangle(a, b, c, 0);
 
-            triangleInstantiation.ShouldThrow<ArgumentException>()
+            triangleInstantiation.Should().Throw<ArgumentException>()
                 .And.Message.Should().Contain("overlap");
         }
     }

@@ -1,5 +1,5 @@
-ï»¿/**
- * Copyright 2017 MÃ¡rton GergÃ³
+/**
+ * Copyright 2022 Márton Gergó
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,19 @@
  * limitations under the License.
  */
 
-using System;
-using System.Windows.Forms;
-
 namespace TriangulatedPolygonAStar.UI
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
             Application.Run(new Demo());
         }
     }

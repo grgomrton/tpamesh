@@ -281,7 +281,7 @@ namespace TriangulatedPolygonAStar.Tests
 
             Action gettingEqualsWithNull = () => vector.Equals(null);
             
-            gettingEqualsWithNull.ShouldNotThrow();
+            gettingEqualsWithNull.Should().NotThrow();
         }
 
         [Test]
