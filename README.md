@@ -18,9 +18,5 @@ This repository contains the implementation of the algorithm in C#.
 
 The project is licensed under [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## Contact
-
-Do you use tpamesh for something cool? [Get in touch](mailto:grgo.mrton@gmail.com).
-
 ## Acknowledgements
 - _Jonathan Shewchuk_, whose library, Triangle was used to triangulate polygons and generate meshes for the demo application
